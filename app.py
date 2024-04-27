@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 model = joblib.load('Dimas.joblib')
 
 # Load mapped data
-mapped_data = pd.read_csv("transformData.csv")
+mapped_data = pd.read_csv("trans_data.csv")
 st.title("Hello geiss,welcome")
 
 # Buat label encoder
