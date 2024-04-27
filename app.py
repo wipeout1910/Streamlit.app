@@ -6,15 +6,15 @@ from sklearn.preprocessing import LabelEncoder
 # Load the trained model
 model = joblib.load('Dimas.joblib')
 
-# Load mapped data
-mapped_data = pd.read_csv("trans_data.csv")
+# Load trans data(import file csv)
+trans_data = pd.read_csv("trans_data.csv")
 st.title("Hello geiss,welcome")
 
 # Buat label encoder
 label_encoders = {}
-for column in transformData.columns:
+for column in trans_data.columns:
     le = LabelEncoder()
-    transformData[column] = le.fit_transform(transformData[column])
+    trans_data[column] = le.fit_transform(trans_data[column])
     label_encoders[column] = le
 
 color_op = ['Cool', 'Neutral', 'Warm']
