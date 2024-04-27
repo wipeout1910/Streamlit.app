@@ -1,9 +1,10 @@
+# Import daftar pustaka
 import streamlit as st
 import pandas as pd
 import joblib
 from sklearn.preprocessing import LabelEncoder
 
-# Load the trained model
+# Mengambil data dari file .joblib
 model = joblib.load('Dimas.joblib')
 
 # Load trans data(import file csv)
@@ -46,7 +47,7 @@ soft_drink_map = {
     'Fanta': 3,
     'Other' : 4
 }
-# Create selectbox for each feature
+# Membuat tampilan dan konfigurasi combo box pada app yang kita buat
 favorite_color = st.selectbox('Favorite Color', ['Select']+color_op)
 favorite_music_genre = st.selectbox('Favorite Music Genre', ['Select']+music_genre_op)
 favorite_beverage = st.selectbox('Favorite Beverage', ['Select']+beverage_op)
@@ -69,24 +70,3 @@ if st.button('Predict'):
         st.write(f"Predicted Gender: {prediction}")
     else:
         st.write("Please select values for all features.")
-        
-# Streamlit UI
-def main():
-    # Page title
-    st.title('Gender Prediction App')
-
-    # Input fields
-    age = st.slider('Age', min_value=18, max_value=100, value=30, step=1)
-    income = st.number_input('Income', value=50000)
-    family_size = st.number_input('Family Size', value=2)
-    education = st.selectbox('Education', ['High School', 'Bachelor', 'Master', 'PhD'])
-
-    # Predict button
-    if st.button('Predict Gender'):
-        # Make prediction
-        prediction = predict_gender(age, income, family_size, education)
-        st.write(f'The predicted gender is: {prediction}')
-
-# Run the app
-if __name__ == '__main__':
-    main()
