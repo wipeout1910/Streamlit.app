@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 # Load the trained model
-model = joblib.load('Rafi.joblib')
+model = joblib.load('Dimas.joblib')
 
 # Function to make predictions
 def predict_gender(age, income, family_size, education):
